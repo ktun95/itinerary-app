@@ -1,0 +1,70 @@
+:root {
+    font-family: "Lato", sans-serif;
+    background-color: #EAFAF9;
+}
+
+body {
+    margin: 0
+}
+
+.box {
+    padding: .5rem;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    border-radius: .25rem;
+    background-color: white;
+    width: 30rem;
+    height: 10rem;
+    border: 0.125em; 
+    box-sizing: content-box;
+    /* overflow: auto; */
+}
+
+.with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+}
+
+.side-bar {
+    padding: .5rem;
+    flex-basis: 31rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    /* overflow-x: visible; */
+    /* background-color: black; */
+}
+
+.flex-container-h {
+    display: flex
+}
+
+.flex-container-v {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex-basis: 0;
+    flex-grow: 999;
+    /* height: 100vh; */
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#mapid {
+    height: 100%;
+    width: 100%;
+}
+
+#app {
+    height: 100vh;
+    width: 100vw;
+}

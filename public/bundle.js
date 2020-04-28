@@ -86,6 +86,54 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/components/app.js":
+/*!**********************************!*\
+  !*** ./client/components/app.js ***!
+  \**********************************/
+/*! exports provided: App */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"App\", function() { return App; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ \"./client/components/map.js\");\n/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar */ \"./client/components/sidebar.js\");\n\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"with-sidebar\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar__WEBPACK_IMPORTED_MODULE_2__[\"Sidebar\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"content\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map__WEBPACK_IMPORTED_MODULE_1__[\"MapContainer\"], null)));\n};\n\n//# sourceURL=webpack:///./client/components/app.js?");
+
+/***/ }),
+
+/***/ "./client/components/box.js":
+/*!**********************************!*\
+  !*** ./client/components/box.js ***!
+  \**********************************/
+/*! exports provided: Box */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Box\", function() { return Box; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar Box = function Box(title, description, type, icon) {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"box\"\n  }, \"Sample Content\");\n};\n\n//# sourceURL=webpack:///./client/components/box.js?");
+
+/***/ }),
+
+/***/ "./client/components/map.js":
+/*!**********************************!*\
+  !*** ./client/components/map.js ***!
+  \**********************************/
+/*! exports provided: MapContainer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MapContainer\", function() { return MapContainer; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar MapContainer = function MapContainer() {\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(function () {\n    var map = L.map('mapid', {\n      doubleClickZoom: false\n    }).setView([32.716, -117.161], 13);\n    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {\n      attribution: 'Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>',\n      maxZoom: 18,\n      id: 'mapbox/streets-v11',\n      interactive: true,\n      tileSize: 512,\n      zoomOffset: -1,\n      accessToken: 'pk.eyJ1Ijoia3Z0dW4iLCJhIjoiY2pvZzgxNXNqMGNkaTN3cWgxajR0bzUzNiJ9.zj2dMLc3dXbt0L0gvP_mXA'\n    }).addTo(map);\n    map.on('dblclick', function (e) {\n      return L.marker(e.latlng).addTo(map);\n    });\n  });\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    id: \"mapid\"\n  });\n};\n\n//# sourceURL=webpack:///./client/components/map.js?");
+
+/***/ }),
+
+/***/ "./client/components/sidebar.js":
+/*!**************************************!*\
+  !*** ./client/components/sidebar.js ***!
+  \**************************************/
+/*! exports provided: Sidebar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Sidebar\", function() { return Sidebar; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./box */ \"./client/components/box.js\");\n\n\nvar Sidebar = function Sidebar() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"side-bar\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_box__WEBPACK_IMPORTED_MODULE_1__[\"Box\"], null));\n};\n\n//# sourceURL=webpack:///./client/components/sidebar.js?");
+
+/***/ }),
+
 /***/ "./client/index.js":
 /*!*************************!*\
   !*** ./client/index.js ***!
@@ -94,7 +142,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"React App\"), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _components_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/app */ \"./client/components/app.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app__WEBPACK_IMPORTED_MODULE_2__[\"App\"], null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/index.js?");
 
 /***/ }),
 
