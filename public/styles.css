@@ -15,9 +15,20 @@ body {
     background-color: white;
     width: 30rem;
     height: 10rem;
-    border: 0.125em; 
+    border: 0.125em solid rgb(245, 244, 244); 
     box-sizing: content-box;
     /* overflow: auto; */
+}
+
+#selected {
+    border-left-color: coral;
+    border-left-width: .5rem;
+    margin-left: -.5rem;
+    width: 30rem
+}
+
+.with-shadow {
+    box-shadow: 0.125em, 0.125em;
 }
 
 .with-sidebar {
@@ -67,4 +78,22 @@ body {
 #app {
     height: 100vh;
     width: 100vw;
+}
+
+.inline-edit-display--active,
+.inline-edit-input--active {
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    padding: 0;
+    background: none;
+}
+
+.inline-edit-input--active {
+    border: 1px solid grey;
+}
+
+.inline-edit-display--hidden,
+.inline-edit-input--hidden {
+    display: none
 }
