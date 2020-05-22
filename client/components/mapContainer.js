@@ -45,7 +45,7 @@ export const MapContainer = (props) => {
             marker.id = activity.id
             
             marker.on('click', (e) => {
-                console.log(e)
+    
                 props.handleClickSelect(e.target.id)
                 
                 //
@@ -66,9 +66,7 @@ export const MapContainer = (props) => {
     }, [props.activities, props.selected])
 
     return(
-        <div id="mapid">{
-            console.log('mapContainer rendered')
-        }
+        <div id="mapid">
         </div>
     )
 }

@@ -7,7 +7,7 @@ export const Map = () => {
         {
             id: 1,
             title: 'Tacos el Gordo',
-            description: 'The Tacos here are really good, eat this shiiiiiiit',
+            description: 'The Tacos here are really good, eat this yum yum yum yum',
             location: [32.6290706, -117.0912042]
         },
         {
