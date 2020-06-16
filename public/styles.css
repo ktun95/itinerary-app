@@ -97,3 +97,32 @@ body {
 .inline-edit-input--hidden {
     display: none
 }
+
+.overlay {
+    display: block;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+}
+
+.popup-menu {
+    position: fixed;
+    left: 50%;
+    width: 50rem;
+    height: 30rem;
+    margin-left: -25rem;
+    background-color: white;
+}
+
+.dropdown {
+    display: block;
+    /* animation-name: dropdown;
+    animation-duration: 1s */
+}
+
+@keyframes dropdown {
+    0% {height: 0%;}
+    100% {height: 100%;}
+}

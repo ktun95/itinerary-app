@@ -59,20 +59,27 @@ export const Map = () => {
 //        const marker = L.Marker(e.latlng)
 //    }
 
-   const newActivity = () => {
-
+   const addActivity = (activity) => {
+       setActivities((prevstate) => [...prevstate, activity])
    }
 
    const handleClickSelect = (id) => {
         setSelected(id)
-        document.getElementById('selected').scrollIntoView()
+        // document.getElementById('selected').scrollIntoView()
    }
 
     return (
         <div className="with-sidebar">
-            <Sidebar activities={activities} selected={selected} handleClickSelect={handleClickSelect} />
+            <Sidebar
+                activities={activities}
+                selected={selected}
+                handleClickSelect={handleClickSelect}
+                addActivity={addActivity} />
             <div className="content">
-                <MapContainer activities={activities} selected={selected} handleClickSelect={handleClickSelect} />
+                <MapContainer
+                    activities={activities}
+                    selected={selected}
+                    handleClickSelect={handleClickSelect} />
             </div>
         </div>
     )
