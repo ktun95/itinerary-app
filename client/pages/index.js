@@ -7,9 +7,10 @@ import { Navigation } from '../components'
 export default function Routes() {
     return (
         <Router>
-            <Route path="/" component={Navigation} />
+            <Route path="/" component={ConnectedActivityMap} />
+            {/* <Route path="/" component={Navigation} />
             <Route path="/map" component={ConnectedActivityMap} />
-            <Route path="/home" component={Home} />
+            <Route path="/home" component={Home} /> */}
         </Router>
     )
 }
