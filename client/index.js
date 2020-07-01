@@ -1,8 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Map } from './pages/map'
+import Routes from './pages'
+import { Provider } from 'react-redux'
+import store from './store'
 
 ReactDOM.render(
-    <Map />,
+    <Provider store={store}>
+        <Routes />
+    </Provider>,
     document.getElementById('app')
 )

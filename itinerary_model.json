@@ -1,0 +1,9 @@
+{
+    "author": "user",
+    "activities": {
+        "ID": {
+            "location": "latitude-longitude",
+            "name": "From Yelp or user entered", 
+        }
+    }
+}

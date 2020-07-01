@@ -1,5 +1,5 @@
 :root {
-    font-family: "Lato", sans-serif;
+    font-family: "Roboto", "Lato", sans-serif;
     background-color: #EAFAF9;
 }
 
@@ -9,13 +9,13 @@ body {
 
 .box {
     padding: .5rem;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
+    /* margin-top: .25rem;
+    margin-bottom: .25rem; */
     border-radius: .25rem;
     background-color: white;
     width: 30rem;
     height: 10rem;
-    border: 0.125em solid rgb(245, 244, 244); 
+    border: 1px solid rgb(235, 235, 235); 
     box-sizing: content-box;
     /* overflow: auto; */
 }
@@ -51,12 +51,18 @@ body {
 }
 
 .flex-container-h {
-    display: flex
+    display: flex;
+    padding: 0.5rem;
+    justify-content: flex-start
 }
 
 .flex-container-v {
     display: flex;
     flex-direction: column;
+}
+
+.right-margin {
+    margin-right: 1rem;
 }
 .content {
     flex-basis: 0;
@@ -74,7 +80,7 @@ body {
     height: 100%;
     width: 100%;
 }
-
+    
 #app {
     height: 100vh;
     width: 100vw;

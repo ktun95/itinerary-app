@@ -1,3 +1,5 @@
 export { Box } from './box'
-export { MapContainer } from './mapContainer'
+export { default as MapContainer } from './mapContainer'
 export { Sidebar } from './sidebar'
+export { Navigation } from './navigation'
+export { ButtonRow } from './buttonRow'

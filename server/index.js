@@ -8,9 +8,12 @@ app.use(express.urlencoded({extended: true}))
 
 app.use(express.static(path.join(__dirname, '..', '/public')))
 
+app.use('/yelp', require('./yelp'))
+
 app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
+
 
 app.use((err, req, res, next) => {
     console.error(err)
