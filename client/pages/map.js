@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react' ;
 import { connect } from 'react-redux';
-import { Sidebar, MapContainer } from '../components';
+import { Sidebar, MapContainer, AddActivity } from '../components';
 import { getYelpBusinesses } from '../functions/mapFunctions';
 import { postActivity, postBusiness } from '../store/'
 
 export const ActivityMap = (props) => {
     const [display, setDisplay] = useState(props.activities)
     const [activities, setActivities] = useState([])
+    const [openModal, setOpenModal] = useState(false)
     const [selected, setSelected] = useState(null)
     const [businesses, setBusinesses] = useState([])
     const [viewCoordinates, setViewCoordinates] = useState([])
@@ -44,6 +45,10 @@ export const ActivityMap = (props) => {
         // document.getElementById('selected').scrollIntoView()
    }
 
+   const handleOpenModal = () => {
+       setOpenModal(!openModal)
+   }
+
     const handleButtonClick = (category) => {
         switch (category) {
             case 'activities':
@@ -69,10 +74,7 @@ export const ActivityMap = (props) => {
 
         itineraryLayers.forEach((l) => {
             map.removeLayer(props.layers[l])
-            console.log('removed layer')
         })
-        // map.removeLayer(props.layers.activities)
-        console.log(layers)
         layers.forEach(layer => {
             if (!map.hasLayer(layer)) map.addLayer(layer)
         })
@@ -82,12 +84,14 @@ export const ActivityMap = (props) => {
         <div className="with-sidebar">
             <Sidebar
                 handleButtonClick={handleButtonClick}
+                handleOpenModal={handleOpenModal}
                 display={display}
                 activities={props.activities}
                 selected={selected}
                 handleClickSelect={handleClickSelect}
                 addActivity={addActivity} />
             <div className="content">
+                {openModal ? <AddActivity isHidden={false} /> : <AddActivity isHidden={true} />}
                 <MapContainer
                     activities={props.activities}
                     businesses={props.businesses}

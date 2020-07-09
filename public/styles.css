@@ -104,24 +104,52 @@ body {
     display: none
 }
 
-.overlay {
+.overlay,.overlay-hidden{
     display: block;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.4);
-    height: 100%;
-    width: 100%;
-    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1199;
+    transition: background-color height 0.5s;
 }
 
-.popup-menu {
+.overlay-hidden {
+    height: 0; 
+    width: 0;
+    background-color: rgba(0, 0, 0, 0.0);
+    transition: background-color width height 0.5s;
+    
+}
+
+.popup-menu, .popup-menu-hidden {
     position: fixed;
     left: 50%;
+    top: 15%;
     width: 50rem;
     height: 30rem;
     margin-left: -25rem;
     background-color: white;
+    padding-inline-start: 1rem;
+    /* border: 1px solid #8f99a3 */
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+    transition: height 0.7s; 
+    overflow: hidden;
+    
 }
 
+.popup-menu-hidden {
+    height: 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 1rem;
+    transition: height 0.7s; 
+}
+
+/* .popup-menu-hidden * {
+    display: none;
+} */
 .dropdown {
     display: block;
     /* animation-name: dropdown;

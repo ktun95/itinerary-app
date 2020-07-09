@@ -11,7 +11,7 @@ import { addActivity } from '../store/activities'
 
 export const Sidebar = (props) => {
     const { display } = props;
-    const [isAddingNewActivity, setAddingNewActivity] = useState(false);
+    // const [isAddingNewActivity, setAddingNewActivity] = useState(false);
     const handleClickSelect = props.handleClickSelect;
     // const [handleClick, ...props] = props
     console.log(props.activities)
@@ -27,7 +27,9 @@ export const Sidebar = (props) => {
                 <div className="click-wrapper" value="businesses" onClick={() => props.handleButtonClick('all')}>
                     <MuiButton variant="extended"> All </MuiButton>
                 </div>
-                <MuiButton color="primary"> + </MuiButton>
+                <div className="click-wrapper" value="businesses" onClick={props.handleOpenModal}>
+                    <MuiButton color="primary"> + </MuiButton>
+                </div>
             </ButtonRow>
             {/* <Button text="Add Activity" handler={() => setAddingNewActivity(!isAddingNewActivity)}/>
             {isAddingNewActivity ?

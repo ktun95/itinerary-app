@@ -25,7 +25,7 @@ export const MapContainer = (props) => {
         let marker = L.marker([latitude, longitude], {icon})
         
         marker.addTo(layerGroup)
-        console.log('adding single marker to layer group')
+
         
         marker.id = activity.id
         
@@ -42,7 +42,7 @@ export const MapContainer = (props) => {
     useEffect(() => { //Renders map after first render;
     const checkMapStateAndElementRendered = (document.getElementById('mapid') && Object.keys(map).length === 0)
         if (checkMapStateAndElementRendered) {
-            console.log('initializing map...')
+    
         // INITIALIZE MAP            
             const myMap = L.map('mapid', {
                 doubleClickZoom: false
@@ -77,17 +77,17 @@ export const MapContainer = (props) => {
     }, [])
     
     useEffect(() => { // Populate map with markers of activities
-        console.log('populating map with markers', map, props.layers)
+
         markers.forEach(marker => marker.remove()) // Removes markers drawn by previous render; marker state holds marker objects that were created and drawn from the previous render, using props.activities
         if (map && Object.keys(map).length) {
             if (props.activities.length) {
-                console.log('adding activities to activity layer')
+        
                 props.activities.map((activity) => {
                     addMarkerToLayerGroup(activity, props.layers.activities)
                 })}
                 
                 if (props.businesses.length) {
-                    console.log('adding businesses to business layer')
+            
                     props.businesses.map((business) => {
                     addMarkerToLayerGroup(business, props.layers.businesses)
             })}
@@ -97,7 +97,7 @@ export const MapContainer = (props) => {
     }, [props.activities, props.selected, props.businesses, props.layers, map])
 
     // useEffect(() => {
-    //     console.log(props.businesses)
+    //   
     //     props.businesses.forEach((business) => {
     //         L.marker([business.coordinates.latitude, business.coordinates.longitude]).addTo(map)
     //     })

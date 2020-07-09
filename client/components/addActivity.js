@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const addActivity = () => {
+export const AddActivity = (props) => {
+    // const [isHidden, setIsHidden] = useState(true)
+    
     return (
-        <div className="overlay">
-            <div className="popup-menu">
-                
+        <div className={props.isHidden ? "overlay-hidden" : "overlay"}>
+            <div className={props.isHidden ? "popup-menu-hidden" : "popup-menu"}>
+                <h1> Add Activity </h1>
             </div>
         </div>
     )
 }
 
-export default addActivity
+
