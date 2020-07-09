@@ -5,6 +5,7 @@ import { getYelpBusinesses } from '../functions/mapFunctions';
 import { postActivity, postBusiness } from '../store/'
 
 export const ActivityMap = (props) => {
+    const [display, setDisplay] = useState(props.activities)
     const [activities, setActivities] = useState([])
     const [selected, setSelected] = useState(null)
     const [businesses, setBusinesses] = useState([])
@@ -43,17 +44,45 @@ export const ActivityMap = (props) => {
         // document.getElementById('selected').scrollIntoView()
    }
 
+    const handleButtonClick = (category) => {
+        switch (category) {
+            case 'activities':
+                showLayerGroup(props.map, [props.layers.activities])
+                setDisplay(props.activities)
+                break;
+            case 'businesses':
+                showLayerGroup(props.map, [props.layers.businesses])
+                setDisplay(props.businesses)
+                break;
+            case 'all':
+                showLayerGroup([props.layers.businesses, props.layers.activities])
+                setDisplay([...props.businesses, ...props.activities])
+                break;
+            default:
+                return
+        }
+    }
+
     const showLayerGroup = (map, layers) => {
         // if (map.hasLayer(layer)) return
-        map.eachLayer((l) => {
-            map.removeLayer(l)
+        const itineraryLayers = Object.keys(props.layers)
+
+        itineraryLayers.forEach((l) => {
+            map.removeLayer(props.layers[l])
+            console.log('removed layer')
         })
-        layers.forEach(layer => map.addLayer(layer))
+        // map.removeLayer(props.layers.activities)
+        console.log(layers)
+        layers.forEach(layer => {
+            if (!map.hasLayer(layer)) map.addLayer(layer)
+        })
     }
 
     return (
         <div className="with-sidebar">
             <Sidebar
+                handleButtonClick={handleButtonClick}
+                display={display}
                 activities={props.activities}
                 selected={selected}
                 handleClickSelect={handleClickSelect}
@@ -72,7 +101,9 @@ export const ActivityMap = (props) => {
 
 const mapStateToProps = (state) => ({
     activities: state.activityReducer.activities,
-    businesses: state.activityReducer.businesses
+    businesses: state.activityReducer.businesses,
+    map: state.mapReducer.map,
+    layers: state.mapReducer.layers
 })
 
 const mapDispatchToProps = dispatch => ({

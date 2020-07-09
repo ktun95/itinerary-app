@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react' ;
 import { connect } from 'react-redux';
-import { addActivity, addMap } from '../store'
+import { addActivity, addMap, addLayer } from '../store'
 
 export const MapContainer = (props) => {
     // const [map, setMap] = useState(null) 
@@ -23,8 +23,9 @@ export const MapContainer = (props) => {
         })
         
         let marker = L.marker([latitude, longitude], {icon})
-
+        
         marker.addTo(layerGroup)
+        console.log('adding single marker to layer group')
         
         marker.id = activity.id
         
@@ -70,28 +71,30 @@ export const MapContainer = (props) => {
                 businesses: businessLayer
             })
             props.addMap(myMap)
+            props.addLayer({activities: activityLayer})
+            props.addLayer({businesses: businessLayer})
         }
     }, [])
     
     useEffect(() => { // Populate map with markers of activities
-        console.log('populating map with markers', map)
+        console.log('populating map with markers', map, props.layers)
         markers.forEach(marker => marker.remove()) // Removes markers drawn by previous render; marker state holds marker objects that were created and drawn from the previous render, using props.activities
         if (map && Object.keys(map).length) {
             if (props.activities.length) {
                 console.log('adding activities to activity layer')
                 props.activities.map((activity) => {
-                    addMarkerToLayerGroup(activity, layers.activities)
+                    addMarkerToLayerGroup(activity, props.layers.activities)
                 })}
                 
                 if (props.businesses.length) {
                     console.log('adding businesses to business layer')
                     props.businesses.map((business) => {
-                    addMarkerToLayerGroup(business, layers.businesses)
+                    addMarkerToLayerGroup(business, props.layers.businesses)
             })}
             
         }
 
-    }, [props.activities, props.selected, props.businesses, map])
+    }, [props.activities, props.selected, props.businesses, props.layers, map])
 
     // useEffect(() => {
     //     console.log(props.businesses)
@@ -108,11 +111,13 @@ export const MapContainer = (props) => {
 }
 
 const mapStateToProps = ({mapReducer}) => ({
-    map: mapReducer.map
+    map: mapReducer.map,
+    layers: mapReducer.layers
 })
 
 const mapDispatchToProps = dispatch => ({
     addMap: (map) => dispatch(addMap(map)),
+    addLayer: (layer) => dispatch(addLayer(layer)),
     addActivity: (activity) => dispatch(addActivity(activity))
 })
 

@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         case ADD_MAP:
             return {...state, map: action.map}
         case ADD_LAYER:
-            return {...state, layer: action.layer}
+            return {...state, layers: {activities: state.layers.activities, businesses: state.layers.businesses, ...action.layer } }
         default: 
             return state
     }
