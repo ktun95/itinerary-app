@@ -60,7 +60,7 @@ export const ActivityMap = (props) => {
                 setDisplay(props.businesses)
                 break;
             case 'all':
-                showLayerGroup([props.layers.businesses, props.layers.activities])
+                showLayerGroup(props.map, [props.layers.businesses, props.layers.activities])
                 setDisplay([...props.businesses, ...props.activities])
                 break;
             default:

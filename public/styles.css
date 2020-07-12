@@ -7,6 +7,30 @@ body {
     margin: 0
 }
 
+.activity-form > input {
+    border-radius: 5px;
+    height: 1.5rem;
+    border-style: solid;
+    border-width: 1px;  
+    border-color: rgb(169, 169, 169);  
+}
+
+.activity-form > textarea {
+    border-radius: 5px;
+    height: 3rem;
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+}
+
+.activity-form > textarea, .activity-form > input {
+    transition: background-color .5s
+}
+
+.warning {
+    background-color: rgb(255, 205, 205) !important;
+}
+
 .box {
     padding: .5rem;
     /* margin-top: .25rem;
@@ -131,6 +155,7 @@ body {
     margin-left: -25rem;
     background-color: white;
     padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
     /* border: 1px solid #8f99a3 */
     border-radius: 10px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
